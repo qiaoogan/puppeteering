@@ -1,5 +1,4 @@
-//import puppeteer from "puppeteer-core";
-const puppeteer = require('puppeteer-core')
+const puppeteer = require('puppeteer')
 
 let browser;
 let page;
