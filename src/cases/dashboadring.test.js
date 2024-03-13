@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer')
+const screenshotUtils = require("../utils/screenshot.utils");
 
 let browser;
 let page;
@@ -9,7 +10,7 @@ beforeAll(async ()=>{
         executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
     });
     page = await browser.newPage();
-    await page.goto("http://hw.dogger.instance/dashboard");
+    await page.goto("http://hw.dogger.instance/dashboard/account-settings");
     await page.setViewport({width: 1920, height: 1080});
     
 })
@@ -22,9 +23,11 @@ test("test with puppeteer",(async () =>{
 
     const dashboardSelector = "button[value='expenses']";
     await page.waitForSelector(dashboardSelector);
-    await page.screenshot({path: 'beforeClick.png'})
+    await screenshotUtils.fullPageScreenshot(page, 'dashboard-page','before');
+    //await page.screenshot({path: 'beforeClick.png'})
     await page.click(dashboardSelector);
     await page.screenshot({path: 'afterClicked.png'})
+    await screenshotUtils.fullPageScreenshot(page, 'dashboard-page','after');
     
     const textSelector = "p.mb-0";
     const totalIncomeElement = await page.waitForSelector(textSelector, { visible: true });
@@ -65,5 +68,21 @@ test("test login", (async () =>{
 }))
 
 
+test.only("test account setting",(async () =>{
+
+    const firstNameSelector = ".v-col-md-6.v-col-12:nth-child(1)";
+    const text = await page.waitForSelector(firstNameSelector);
+    await screenshotUtils.fullPageScreenshot(page, 'dashboard-page','before');
+    //await page.screenshot({path: 'beforeClick.png'})
+    await page.click(firstNameSelector);
+    await page.screenshot({path: 'afterClicked.png'})
+    await screenshotUtils.fullPageScreenshot(page, 'dashboard-page','after');
+    
+    const textSelector = "p.mb-0";
+    const totalIncomeElement = await page.waitForSelector(textSelector, { visible: true });
+    const totalIncomeText = await page.evaluate(element => element.textContent, totalIncomeElement);
+    expect(totalIncomeText).toContain("Total Expenses");
+    
+}))
 
 
