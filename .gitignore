@@ -1,2 +1,5 @@
 /node_modules/
 /test-screenshots/
+/allure-report/
+/allure-results/
+/pptruser/

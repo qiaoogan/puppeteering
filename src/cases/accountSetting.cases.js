@@ -8,7 +8,7 @@ const testSaveNewAccountInfo = async (page, expect) => {
 
     await screenshotUtils.fullPageScreenshot(page, 'account-setting');
 
-    const firstNameToVerify = "test-firstName";
+    const firstNameToVerify = "test-firstName1";
     await accountSettingPage.actions.inputFirstName(firstNameToVerify);
     await accountSettingPage.actions.inputLastName("lastName");
     

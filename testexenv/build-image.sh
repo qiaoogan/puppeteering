@@ -1,0 +1,1 @@
+docker build --rm -f ./Dockerfile --tag=testexeteer:0.0.1 .
