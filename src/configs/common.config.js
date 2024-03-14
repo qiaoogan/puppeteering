@@ -14,7 +14,7 @@ const configSetup = {
     },
 
     cloud: {
-        url: "http://hw.dogger.instance",
+        url: "http://123.60.93.173",
     }
 };
 
