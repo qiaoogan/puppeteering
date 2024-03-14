@@ -13,6 +13,7 @@ pipeline {
             steps {
                 echo 'Trigger Visual Tests with Micoo'
                 sh "pwd && ls -al"
+                sh "bash containerun-vtest.sh"
             }
         }
     }
