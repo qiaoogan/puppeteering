@@ -4,7 +4,7 @@ module.exports = {
             executablePath: "/usr/bin/google-chrome" ,
             args: [`--no-sandbox`, `--headless`, `--disable-gpu`, `--disable-dev-shm-usage`]
         } : {
-            headless: false,
+            headless: true,
             executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
         },
     viewPortOptions: {

@@ -14,10 +14,10 @@ echo " missing testEnv environment variable: testEnv=(local|qa)"
 exit 1
 fi
 
-screenshots_directory="test-screenshots"
+screenshots_directory="test-results/test-screenshots"
 
 if [ ! -d "$screenshots_directory" ]; then
-  mkdir "$screenshots_directory"
+  mkdir -p "$screenshots_directory"
 fi
 
 rm $screenshots_directory/*.png

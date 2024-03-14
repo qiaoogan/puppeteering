@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -rf node_modules allure-report allure-results test-screenshots
+rm -rf node_modules allure-results test-results
 pwd && ls -al
 npm install
 
